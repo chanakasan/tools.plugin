@@ -3,7 +3,7 @@
 ed() {
   local a1="$1"
   local a2="$2"
-  local file=$chk_bash_path/$a1
+  local mods_path=$nex_mods_path/src
   if [ "$a1" = "0" ]; then
     _ed_self
   elif [ "$a1" = "bin" ]; then
@@ -20,17 +20,16 @@ ed() {
 }
 
 _ed_self() {
-  vi $chk_bash_path/mods/mod_ed
+  vi $mods_path/ed.mod
 }
 
 _ed_mod() {
-  local mods_path=$chk_bash_path/mods
-  vi $mods_path/"$1"
+  vi $mods_path/"$1".mod
 }
 
 _ed_umod() {
   local user_mods_path=$HOME/user_mods
-  vi $user_mods_path/"$1"
+  vi $user_mods_path/"$1".mod
 }
 
 _ed_bin() {
@@ -49,16 +48,6 @@ _ed_mux() {
     vi $mux_path
   else
     vi $mux_path/$v.sh
-  fi
-}
-
-_ed_mod() {
-  local v="$1"
-  local mod=$chk_user_mods_path/$v.mod
-  if [ -z "$v" ]; then
-    vi $chk_user_mods_path/new.mod
-  else
-    vi $mod
   fi
 }
 
