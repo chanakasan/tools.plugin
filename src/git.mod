@@ -1,19 +1,32 @@
 # vim:ft=sh:
 
 g-help() {
-  echo '""""""""""""""""""""""""""""""'
-  echo '" mod_git '
-  echo '""""""""""""""""""""""""""""""'
-  echo ""
-  echo "sub commands:"
-  echo "- add"
-  echo "- com"
+  echo '+==========+'
+  echo '| mod_git  |'
+  echo '+==========+'
 }
 
+# long aliases
+alias clone="git clone"
+alias remote="git remote"
+alias push="git push"
+alias pull="git pull"
+alias branch="git branch"
+
+# shorthands
+alias gco="git checkout"
+alias gd="git diff"
+alias gr="git reset"
+alias gc="git commit"
+alias ga="git add"
+alias glg="git log --all --graph --oneline --decorate"
+alias gir="_g-ir"
+
 g() {
-  local v="$1"
-  local fn=g-$v
-  if [ -z "$v" ]; then
+  local a1="$1"
+  local a2="$2"
+  local fn=g-$a1
+  if [ -z "$a1" ]; then
     git status
   elif [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
@@ -22,10 +35,15 @@ g() {
   fi
 }
 
-#""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-# helpers
-#""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-gir() {
+g-po() {
+  if [ -z "$1" ]; then
+    echo "Usage: g po <branch>"
+  else
+    git push origin "$1"
+  fi
+}
+
+g-ir() {
   local v="$1"
   local is_num=$(_nx_is_number $v)
   if [ -z "$v" ]; then
@@ -119,21 +137,6 @@ g-init() {
 g-pom() {
   git push origin main "$@"
 }
-
-# long aliases
-alias clone="git clone"
-alias remote="git remote"
-alias push="git push"
-alias pull="git pull"
-alias branch="git branch"
-
-# short aliases
-alias gco="git checkout"
-alias gd="git diff"
-alias gr="git reset"
-alias gc="git commit"
-alias ga="git add"
-alias glg="git log --all --graph --oneline --decorate"
 
 g-branch() {
   git symbolic-ref --short HEAD
