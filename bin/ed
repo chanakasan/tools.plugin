@@ -1,35 +1,40 @@
-# vim:ft=sh:
+#!/bin/bash
 
-ed() {
+main() {
   local a1="$1"
   local a2="$2"
   local mods_path=$nex_mods_path/src
-  if [ "$a1" = "0" ]; then
-    _ed_self
-  elif [ "$a1" = "bin" ]; then
-    _ed_bin $a2
-  elif [ "$a1" = "mux" ]; then
-    _ed_mux $a2
-  elif [ "$a1" = "mod" ]; then
-    _ed_mod $a2
-  elif [ "$a1" = "umod" ]; then
-    _ed_umod $a2
+  local user_mods_path=$HOME/user_mods
+  local fn=_ed_$a1
+  if [[ $(type -t $fn ) == function ]]; then
+    $fn "${@:2}"
   else
     echo "Usage: ed <type> <file>"
   fi
 }
 
-_ed_self() {
-  vi $mods_path/ed.mod
+_ed_0() {
+  vi $nex_mods_path/bin/ed
+}
+
+_ed_1() {
+  _ed_umod
 }
 
 _ed_mod() {
-  vi $mods_path/"$1".mod
+  if [ -z "$1" ]; then
+    vi $mods_path
+  else
+    vi $mods_path/"$1".mod
+  fi
 }
 
 _ed_umod() {
-  local user_mods_path=$HOME/user_mods
-  vi $user_mods_path/"$1".mod
+  if [ -z "$1" ]; then
+    vi $user_mods_path
+  else
+    vi $user_mods_path/"$1".mod
+  fi
 }
 
 _ed_bin() {
@@ -41,8 +46,12 @@ _ed_bin() {
   fi
 }
 
+_ed_tmux() {
+  vi $nex_tmux_path
+}
+
 _ed_mux() {
-  local mux_path=$chk_dotfiles_path/tmux/mux
+  local mux_path=$nex_tmux_path/mux
   local v="$1"
   if [ -z "$v" ]; then
     vi $mux_path
@@ -68,3 +77,4 @@ _ed_vim() {
   vi $HOME/.vimrc
 }
 
+main "$@"
