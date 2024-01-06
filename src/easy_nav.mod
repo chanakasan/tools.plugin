@@ -1,6 +1,6 @@
 # popup
-alias ed="tmux popup -E -x 10 -y 10 -w 82% -h 100% ed"
-alias vi="tmux popup -E -x 10 -y 10 -w 82% -h 100% vim"
+#alias ed="tmux popup -E -x 10 -y 10 -w 82% -h 100% ed"
+#alias vi="tmux popup -E -x 10 -y 10 -w 82% -h 100% vim"
 
 # mux
 #alias temp="source ~/dotfiles/lib/temp.sh"
