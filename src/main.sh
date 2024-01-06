@@ -1,4 +1,4 @@
-for f in $nex_mods_path/src/*; do
+for f in $nex_mods_path/src/*.mod; do
  source $f
 done
 
