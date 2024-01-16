@@ -9,8 +9,25 @@ main() {
   if [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
   else
-    echo "Usage: ed <type> <file>"
+    print_usage
   fi
+  wait_for_key
+}
+
+wait_for_key() {
+  echo "Press any key to continue"
+  while [ true ]; do
+    read -t 5 -n 1
+    if [ $? = 0 ]; then
+      exit
+    else
+      echo "waiting for the keypress"
+    fi
+  done
+}
+
+print_usage() {
+  echo "Usage: ed <type> <file>"
 }
 
 _ed_0() {
