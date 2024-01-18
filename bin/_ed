@@ -3,8 +3,6 @@
 main() {
   local a1="$1"
   local a2="$2"
-  local mods_path=$nex_mods_path/src
-  local user_mods_path=$HOME/user_mods
   local fn=_ed_$a1
   if [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
@@ -30,33 +28,9 @@ print_usage() {
   echo "Usage: ed <type> <file>"
 }
 
-_ed_0() {
-  vi $nex_mods_path/bin/ed
-}
-
-_ed_mod() {
-  if [ -z "$1" ]; then
-    vi $mods_path
-  else
-    vi $mods_path/"$1".bash
-  fi
-}
-
 _ed_umod() {
-  if [ -z "$1" ]; then
-    vi $user_mods_path
-  else
-    vi $user_mods_path/"$1".bash
-  fi
-}
-
-_ed_bin() {
-  local v="$1"
-  if [ -z "$v" ]; then
-    vi $chk_dotfiles_path/bin
-  else
-    vi $chk_dotfiles_path/bin/$v
-  fi
+  local user_mods_path=$HOME/umods
+  vi $user_mods_path
 }
 
 _ed_tmux() {
@@ -64,13 +38,11 @@ _ed_tmux() {
 }
 
 _ed_mux() {
-  local mux_path=$nex_tmux_path/mux
-  local v="$1"
-  if [ -z "$v" ]; then
-    vi $mux_path
-  else
-    vi $mux_path/$v.sh
-  fi
+  vi $nex_mux_path
+}
+
+_ed_mod() {
+  vi $nex_mods_path
 }
 
 _ed_input() {

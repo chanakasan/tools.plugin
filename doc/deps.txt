@@ -1,0 +1,8 @@
+# deps
+
+nex-bash
+
+-- other
+tmux 3.2 or above
+vim 8.0 or above
+
