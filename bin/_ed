@@ -45,6 +45,14 @@ _ed_mod() {
   vi $nex_mods_path
 }
 
+_ed_git() {
+  vi $nex_git_path
+}
+
+_ed_script() {
+  vi $nex_script_path
+}
+
 _ed_input() {
   $HOME/inputrc
 }
@@ -56,7 +64,6 @@ _ed_bash() {
 _ed_ssh() {
   vi $HOME/.ssh/config
 }
-
 
 _ed_vim() {
   vi $HOME/.vimrc
