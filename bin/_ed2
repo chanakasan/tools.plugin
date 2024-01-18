@@ -38,7 +38,7 @@ _ed_mod() {
   if [ -z "$1" ]; then
     vi $mods_path
   else
-    vi $mods_path/"$1".mod
+    vi $mods_path/"$1".bash
   fi
 }
 
@@ -46,7 +46,7 @@ _ed_umod() {
   if [ -z "$1" ]; then
     vi $user_mods_path
   else
-    vi $user_mods_path/"$1".mod
+    vi $user_mods_path/"$1".bash
   fi
 }
 
