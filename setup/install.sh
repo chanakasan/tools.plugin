@@ -35,7 +35,6 @@ copy_to_bashrc() {
   echo "#$start_text" >> $bashrc
   echo 'export nex_mods_path='$nex_mods_path >> $bashrc
   echo 'source $nex_mods_path/bash/main.sh' >> $bashrc
-  echo 'export PATH=$nex_mods_path/bin:$PATH' >> $bashrc
   echo "#$end_text" >> $bashrc
   echo "" >> $bashrc
 }
