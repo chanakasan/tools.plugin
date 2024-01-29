@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-source_file $nex_mods_path/lib/repl.sh
+source $nex_mods_path/lib/repl.sh
 
 nx_repl "$@"
