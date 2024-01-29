@@ -1,6 +1,6 @@
 repl() {
   local v="$1"
-  local dir=$HOME/repl/$v
+  local dir=$HOME/spaces/repl/$v
   if [ -z "$v" ]; then
     echo "mod_repl: missing args <name>" 
     return
@@ -9,7 +9,5 @@ repl() {
     echo "mod_repl: repl not found '$v'" 
     return
   fi
-  code $dir
+  vscode $dir
 }
-
-
