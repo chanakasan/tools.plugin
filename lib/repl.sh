@@ -1,4 +1,4 @@
-repl() {
+nx_repl() {
   local v="$1"
   local dir=$HOME/spaces/repl/$v
   if [ -z "$v" ]; then

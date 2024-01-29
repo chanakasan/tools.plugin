@@ -2,4 +2,4 @@
 
 source_file $nex_mods_path/lib/repl.sh
 
-_nx_repl "$@"
+nx_repl "$@"
