@@ -28,7 +28,7 @@ _ed_mod() {
 }
 
 _ed_git() {
-  vscode $nex_git_path
+  vscode $nex_devscript_path
 }
 
 _ed_script() {
