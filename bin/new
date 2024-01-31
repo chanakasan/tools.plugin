@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-source $nex_mods_path/lib/new.sh
+source $nex_mods_path/lib/mods/new.sh
 
 nx_new "$@"

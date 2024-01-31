@@ -17,7 +17,3 @@ nx_new() {
 print_usage() {
   echo "uage"
 }
-
-_new_mux() {
-  mux create
-}
