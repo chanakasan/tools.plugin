@@ -7,6 +7,10 @@ _ed_cli() {
   vscode $HOME/dotfiles/nex-cli
 }
 
+_ed_dev() {
+  vscode $nex_devscript_path
+}
+
 _ed_bash() {
   vscode $nex_bash_path
 }
