@@ -1,12 +1,15 @@
 #!/bin/bash
 
 source $nex_mods_path/lib/ed_vscode.sh
+source $nex_mods_path/lib/ed_vim.sh
 
 nx_ed() {
   local a1="$1"
   local a2="$2"
   local fn=_ed_$a1
-  if [[ $(type -t $fn ) == function ]]; then
+  if [ -z "$a1" ]; then
+    edit_umod
+  elif [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
   else
     print_usage
@@ -31,17 +34,14 @@ print_usage() {
 }
 
 _ed_inp() {
-  vim $HOME/inputrc
+  edit_inputrc
 }
 
 _ed_ssh() {
-  vim $HOME/.ssh/config
+  edit_ssh
 }
 
 _ed_rc() {
-  edit_bashrc
-}
-_ed_brc() {
   edit_bashrc
 }
 
@@ -50,16 +50,5 @@ _ed_vrc() {
 }
 
 _ed_umod() {
-  local user_mods_path=$HOME/umods
-  vim $user_mods_path
-}
-
-#;; suport
-
-edit_bashrc() {
-  vim $HOME/.bashrc
-}
-
-edit_vimrc() {
-  vim $HOME/.vimrc
+  edit_umod
 }
