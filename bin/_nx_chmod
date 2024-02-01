@@ -1,0 +1,23 @@
+nx_chmod() {
+  local base="$1"
+  local path1="null"
+  echo "<$base>"
+  if [ -z "$base" ]; then
+    path1=./bin/*
+    run_cmd $path1
+  elif [ ! -d "$base" ]; then
+    echo " not found: $base"
+  else
+    path1="$base"/bin/*
+    run_cmd $path1
+  fi
+}
+
+run_cmd() {
+  local path1="$1"
+  cmd="chmod +x $path1"
+  echo " >> $cmd"
+  # "$cmd"
+}
+
+chmod +x ./bin/*

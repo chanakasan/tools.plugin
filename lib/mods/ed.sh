@@ -34,21 +34,21 @@ print_usage() {
 }
 
 _ed_inp() {
-  edit_inputrc
+  _ed_inputrc
 }
 
 _ed_ssh() {
-  edit_ssh
+  _ed_ssh
 }
 
 _ed_rc() {
-  edit_bashrc
+  _ed_bashrc
 }
 
 _ed_vrc() {
-  edit_vimrc
+  _ed_vimrc
 }
 
-_ed_umod() {
-  edit_umod
+edit_umod() {
+  _ed_umod
 }

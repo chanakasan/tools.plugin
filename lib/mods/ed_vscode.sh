@@ -34,3 +34,16 @@ _ed_git() {
 _ed_script() {
   vscode $nex_script_path
 }
+
+_ed_tpl() {
+  local name="$1"
+  local path1=$HOME/tpl/$name
+  if [ -z "$name" ]; then
+    echo " must provide tpl <name>"
+    exit 1
+  elif [ ! -d "$path1" ]; then
+    echo " not found: $path1"
+    exit 1
+  fi
+  vscode $path1
+}

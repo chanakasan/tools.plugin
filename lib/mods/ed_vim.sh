@@ -1,20 +1,20 @@
-edit_bashrc() {
+_ed_bashrc() {
   vim $HOME/.bashrc
 }
 
-edit_vimrc() {
+_ed_vimrc() {
   vim $HOME/.vimrc
 }
 
-edit_umod() {
+_ed_umod() {
   local user_mods_path=$HOME/umods
   vim $user_mods_path
 }
 
-edit_ssh() {
+_ed_ssh() {
   vim $HOME/.ssh/config
 }
 
-edit_inputrc() {
+_ed_inputrc() {
   vim $HOME/inputrc
 }

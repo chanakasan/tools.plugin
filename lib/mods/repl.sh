@@ -1,12 +1,13 @@
 nx_repl() {
-  local v="$1"
-  local dir=$HOME/spaces/repl/$v
-  if [ -z "$v" ]; then
+  local a1="$1"
+  local name=$a1
+  local dir=$HOME/spaces/repl/$name
+  if [ -z "$a1" ]; then
     echo "mod_repl: missing args <name>" 
     return
   fi
   if [ ! -d "$dir" ]; then
-    echo "mod_repl: repl not found '$v'" 
+    echo " not found: $dir" 
     return
   fi
   vscode $dir
