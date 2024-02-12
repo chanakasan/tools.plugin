@@ -1,5 +1,7 @@
 #!/bin/env bash
 
+set -e
+
 main() {
   local trash_dir=$HOME/trash
   local a1="$1"
