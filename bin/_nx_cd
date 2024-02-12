@@ -1,0 +1,15 @@
+nx_cd() {
+  local main_cmd="nex cd $1"
+  local name="$1"
+  local root1=$HOME/dotfiles
+  local path1=$root1/nex-$name
+  if [ -d $path1 ]; then
+    cd $path1
+  elif [ -d $name ]; then
+    cd $name
+  else
+    echo " not found: $main_cmd"
+  fi
+}
+
+nx_cd "$@"

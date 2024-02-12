@@ -2,7 +2,7 @@ nx_underscore() {
   local verb="$1"
   local arg="$2"
   local fn=_u_$verb
-  local cmd="_ $verb $arg"
+  local main_cmd="_ $verb $arg"
   if [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
   else
@@ -11,7 +11,7 @@ nx_underscore() {
 }
 
 print_not_found() {
-  echo " not found: $cmd"
+  echo " not found: $main_cmd"
 }
 
 _u_cd() {
