@@ -1,13 +1,12 @@
 source $nex_mods_path/lib/underscore/cd.sh
 
 nx_underscore() {
-  local verb="$1"
-  local arg="$2"
-  local fn=nx__$verb
-  local main_cmd="_ $verb $arg"
+  local main_cmd="_ $1 $2"
+  local fn=nx__$1
   if [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
   else
-    echo " not found: $main_cmd"
+    nex "$@"
+    # echo " not found: $main_cmd"
   fi
 }
