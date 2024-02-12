@@ -1,2 +1,2 @@
-source $nex_mods_path/lib/mods/underscore/index.sh
+source $nex_mods_path/lib/underscore/index.sh
 alias _="nx_underscore"
