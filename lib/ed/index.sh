@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source $nex_mods_path/lib/mods/ed_vscode.sh
-source $nex_mods_path/lib/mods/ed_vim.sh
+source $nex_mods_path/lib/ed/vscode.sh
+source $nex_mods_path/lib/ed/vim.sh
 
 nx_ed() {
   local a1="$1"
