@@ -34,7 +34,15 @@ _ed_script() {
 }
 
 _ed_modules() {
-  vscode $HOME/wip/lib/base-modules
+  vscode $HOME/modules
+}
+
+_ed_lib() {
+  vscode $HOME/lib
+}
+
+_ed_rtpl() {
+  vscode $HOME/railstpl
 }
 
 _ed_tpl() {

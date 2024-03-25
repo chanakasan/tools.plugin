@@ -5,14 +5,16 @@ set -e
 main() {
   local trash_dir=$HOME/trash
   local a1="$1"
-  local outName=$(basename $a1)
+  local a2="$2"
+  local a3="$3"
+  local out1=$(basename $a1)
 
   if [ -z "$a1" ]; then
 	  mux trash
   fi
 
   mkdir -p $trash_dir
-  mv $a1 $trash_dir/$outName--`num`
+  mv $a1 $trash_dir/$out1--`num`
 }
 
 main "$@"

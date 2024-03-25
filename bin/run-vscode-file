@@ -10,7 +10,7 @@ main() {
   local find="\\"
   local replace="\/"
   local file=$(echo $input | sed 's#\\#\/#g')
-  "$cmd" "$file"
+  run_file "$file"
 }
 
 main "$@"
