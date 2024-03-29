@@ -8,12 +8,11 @@ nx_ed() {
   local a2="$2"
   local fn=_ed_$a1
   if [ -z "$a1" ]; then
-    ed_umod
+    print_usage
   elif [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
   else
     print_usage
-    wait_for_key
   fi
 }
 
@@ -35,6 +34,7 @@ wait_for_key() {
 
 print_usage() {
   echo "Usage: ed <type> <file>"
+  wait_for_key
 }
 
 open_lab() {

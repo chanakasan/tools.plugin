@@ -20,8 +20,8 @@ _ed_vimrc() {
   vim $HOME/.vimrc
 }
 
-_ed_umod() {
-  local user_mods_path=$HOME/umods
+_ed_mod() {
+  local user_mods_path=$HOME/user_mods/bash
   vim $user_mods_path
 }
 

@@ -19,7 +19,7 @@ _ed_mux() {
   vscode $nex_mux_path
 }
 
-_ed_mod() {
+_ed_tool() {
   vscode $nex_tools_path
 }
 
