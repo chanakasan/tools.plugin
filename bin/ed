@@ -4,7 +4,7 @@ source $nex_mods_path/lib/ed/index.sh
 
 main() {
 	if [ "$nex_use_tmux" == "true" ]; then
-		tmux popup -E -d '#{pane_current_path}' -w 90% -h 100% -- nx_ed $@
+		nx_ed_tmux $@
 	else
 		nx_ed $@
 	fi

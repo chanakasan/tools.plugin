@@ -1,3 +1,17 @@
+# shortcut
+_ed_inp() {
+  _ed_inputrc
+}
+
+_ed_rc() {
+  _ed_bashrc
+}
+
+_ed_vrc() {
+  _ed_vimrc
+}
+# end shortcut
+
 _ed_bashrc() {
   vim $HOME/.bashrc
 }
@@ -18,3 +32,4 @@ _ed_ssh() {
 _ed_inputrc() {
   vim $HOME/inputrc
 }
+

@@ -8,13 +8,17 @@ nx_ed() {
   local a2="$2"
   local fn=_ed_$a1
   if [ -z "$a1" ]; then
-    edit_umod
+    ed_umod
   elif [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
   else
     print_usage
     wait_for_key
   fi
+}
+
+nx_ed_tmux() {
+	tmux popup -E -d '#{pane_current_path}' -w 90% -h 100% -- nx_ed $@
 }
 
 wait_for_key() {
@@ -33,22 +37,12 @@ print_usage() {
   echo "Usage: ed <type> <file>"
 }
 
-_ed_inp() {
-  _ed_inputrc
+open_lab() {
+  cd $type_dir
+  vscode $type_dir
+  mux new
 }
 
-_ed_ssh() {
-  _ed_ssh
-}
-
-_ed_rc() {
-  _ed_bashrc
-}
-
-_ed_vrc() {
-  _ed_vimrc
-}
-
-edit_umod() {
+ed_umod() {
   _ed_umod
 }

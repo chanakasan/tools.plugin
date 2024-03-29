@@ -57,3 +57,22 @@ _ed_tpl() {
   fi
   vscode $path1
 }
+
+_ed_lab() {
+  local base=$HOME/groups/nexit/system
+  local type="$1"
+  local type_name=$type-lab
+  local type_dir=$base/$type_name
+
+  if [ -z "$type" ]; then
+    echo " must provide lab <type>"
+    exit 1
+  fi
+
+  if [ ! -d "$type_dir" ]; then
+    echo "not_found: $type_name"
+    return
+  fi
+  
+  open_lab $type_dir
+}
