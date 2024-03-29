@@ -1,4 +1,4 @@
-source $nex_mods_path/lib/underscore/cd.sh
+source $nex_tools_path/lib/underscore/cd.sh
 
 nx_underscore() {
   local main_cmd="_ $1 $2"

@@ -20,7 +20,7 @@ _ed_mux() {
 }
 
 _ed_mod() {
-  vscode $nex_mods_path
+  vscode $nex_tools_path
 }
 
 _ed_git() {

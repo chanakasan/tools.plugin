@@ -8,7 +8,7 @@ main() {
   local start_text='__nex_mods_start'
   local end_text='__nex_mods_end'
   local bashrc="$HOME/.bashrc"
-  local nex_mods_path=$(get_root_path)/$dir_name
+  local nex_tools_path=$(get_root_path)/$dir_name
   echo " Installing - $title"
   remove_from_bashrc
   copy_to_bashrc
@@ -33,9 +33,9 @@ remove_from_bashrc() {
 copy_to_bashrc() {
   echo "" >> $bashrc
   echo "#$start_text" >> $bashrc
-  echo 'export nex_mods_path='$nex_mods_path >> $bashrc
-  echo 'export PATH=$nex_mods_path/bin:$PATH' >> $bashrc
-  echo 'source $nex_mods_path/bash/main.sh' >> $bashrc
+  echo 'export nex_tools_path='$nex_tools_path >> $bashrc
+  echo 'export PATH=$nex_tools_path/bin:$PATH' >> $bashrc
+  echo 'source $nex_tools_path/bash/main.sh' >> $bashrc
   echo "#$end_text" >> $bashrc
   echo "" >> $bashrc
 }

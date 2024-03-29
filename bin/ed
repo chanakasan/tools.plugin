@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $nex_mods_path/lib/ed/index.sh
+source $nex_tools_path/lib/ed/index.sh
 
 main() {
 	if [ "$nex_use_tmux" == "true" ]; then
