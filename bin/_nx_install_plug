@@ -1,8 +1,8 @@
 main() {
   local short_name=$1
-  local plugin_dir=nex-$short_name
+  local plugin_name=$short_name.nexplugin
   local base_dir=$HOME/dotfiles
-  local file=$base_dir/$plugin_dir/setup/install.sh
+  local file=$base_dir/$plugin_name/setup/install.sh
   if [ -z "$short_name" ]; then
     echo
     echo " Usage: nex install_plug git|mux|tools"

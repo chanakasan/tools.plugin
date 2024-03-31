@@ -1,8 +1,5 @@
 #!/bin/bash
 
-source $nex_tools_path/src/lib/ed/vscode.sh
-source $nex_tools_path/src/lib/ed/vim.sh
-
 nx_ed() {
   local a1="$1"
   local a2="$2"
