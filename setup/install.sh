@@ -3,18 +3,24 @@
 set -e
 
 main() {
-  local title="Nex Mods"
-  local dir_name="nex-mods"
-  local start_text='__nex_mods_start'
-  local end_text='__nex_mods_end'
+  local plugin_dir="nex-tools"
+  local start_text='__nex_tools_start'
+  local end_text='__nex_tools_end'
   local bashrc="$HOME/.bashrc"
-  local nex_tools_path=$(get_root_path)/$dir_name
-  echo " Installing - $title"
+  local nex_tools_path=$(get_root_path)/$plugin_dir
+  start
   remove_from_bashrc
   copy_to_bashrc
-  echo ""
+  finish
+}
+
+start() {
+  echo " Installing - Nex Tools"
+}
+
+finish() {
   echo " done"
-  echo ""
+  echo
 }
 
 get_root_path() {
