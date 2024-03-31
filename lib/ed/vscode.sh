@@ -19,8 +19,12 @@ _ed_mux() {
   vscode $nex_mux_path
 }
 
-_ed_tool() {
+_ed_tools() {
   vscode $nex_tools_path
+}
+
+_ed_ed() {
+  _ed_tool
 }
 
 _ed_git() {
@@ -38,7 +42,22 @@ _ed_modules() {
 }
 
 _ed_lib() {
-  vscode $HOME/lib
+  local base=$HOME/groups/nexit/lib
+  local type="$1"
+  local type_name=$type-nex-lib
+  local type_dir=$base/$type_name
+
+  if [ -z "$type" ]; then
+    echo " must provide lib <type>"
+    exit 1
+  fi
+
+  if [ ! -d "$type_dir" ]; then
+    echo "not_found: $type_name"
+    return
+  fi
+  
+  open_lab $type_dir
 }
 
 _ed_rtpl() {
@@ -75,4 +94,20 @@ _ed_lab() {
   fi
   
   open_lab $type_dir
+}
+
+_ed_space() {
+  _ed_sp $@
+}
+
+_ed_sp() {
+  local link_path="$PWD/space"
+  local pwd_dir=$(basename $PWD)
+  if [ -L "$link_path" ]; then
+    abs_path=$(readlink -f "$link_path")
+    vscode $abs_path
+  elif [[ "$pwd_dir" == "space" ]] && [[ -L "$PWD" ]]; then
+    abs_path=$(readlink -f "$PWD")
+    vscode $abs_path
+  fi
 }

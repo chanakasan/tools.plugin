@@ -8,7 +8,7 @@ nx_ed() {
   local a2="$2"
   local fn=_ed_$a1
   if [ -z "$a1" ]; then
-    print_usage
+    _ed_sp
   elif [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
   else
