@@ -41,7 +41,7 @@ copy_to_bashrc() {
   echo "#$start_text" >> $bashrc
   echo 'export nex_tools_path='$nex_tools_path >> $bashrc
   echo 'export PATH=$nex_tools_path/bin:$PATH' >> $bashrc
-  echo 'source $nex_tools_path/bash/main.sh' >> $bashrc
+  echo 'source $nex_tools_path/src/bash/main.sh' >> $bashrc
   echo "#$end_text" >> $bashrc
   echo "" >> $bashrc
 }

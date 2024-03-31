@@ -20,11 +20,11 @@ _ed_mux() {
 }
 
 _ed_tools() {
-  vscode $nex_tools_path
+  vscode $nex_tools_path/src
 }
 
 _ed_ed() {
-  _ed_tool
+  _ed_tools
 }
 
 _ed_git() {

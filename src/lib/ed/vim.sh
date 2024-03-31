@@ -1,22 +1,12 @@
-# shortcut
-_ed_inp() {
-  _ed_inputrc
-}
-
-_ed_rc() {
-  _ed_bashrc
-}
-
-_ed_vrc() {
-  _ed_vimrc
-}
-# end shortcut
-
-_ed_bashrc() {
+_ed_rcbash() {
   vim $HOME/.bashrc
 }
 
-_ed_vimrc() {
+_ed_rc() {
+  _ed_rcbash
+}
+
+_ed_rcvim() {
   vim $HOME/.vimrc
 }
 
@@ -29,7 +19,10 @@ _ed_ssh() {
   vim $HOME/.ssh/config
 }
 
-_ed_inputrc() {
+_ed_rcinput() {
   vim $HOME/inputrc
 }
 
+_ed_input() {
+  _ed_rcinput
+}
