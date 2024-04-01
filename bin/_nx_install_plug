@@ -10,7 +10,7 @@ main() {
     exit 1
   elif [ -f $file ]; then
     echo " Running setup $file"
-    bash $file
+    bash $file ${@:2}
   else
     echo " setup not found: $file"
   fi

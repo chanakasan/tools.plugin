@@ -3,11 +3,13 @@
 set -e
 
 main() {
-  local plugin_dir="nex-tools"
+  local plugin_dir=tools.nexplugin
   local start_text='__nex_tools_start'
   local end_text='__nex_tools_end'
   local bashrc="$HOME/.bashrc"
-  local nex_tools_path=$(get_root_path)/$plugin_dir
+  local default_root=$HOME/plugins
+  local root_path=${nex_root_path:-$default_root}
+  local nex_tools_path=$root_path)/$plugin_dir
   start
   remove_from_bashrc
   copy_to_bashrc
@@ -21,15 +23,6 @@ start() {
 finish() {
   echo " done"
   echo
-}
-
-get_root_path() {
-  local user=$(whoami)
-  if [ "$user" = "codespace" ]; then
-    echo /workspaces/.codespaces/.persistedshare
-  else
-    echo $HOME/dotfiles
-  fi
 }
 
 remove_from_bashrc() {

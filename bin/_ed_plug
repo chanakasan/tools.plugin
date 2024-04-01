@@ -1,0 +1,24 @@
+main() {
+  local base=$HOME/dotfiles
+  local type="$1"
+  local type_name=$type.nexplugin
+  local type_dir=$base/$type_name
+
+  if [ -z "$type" ]; then
+    echo " must provide plugin <type>"
+    exit 1
+  fi
+
+  if [ ! -d "$type_dir" ]; then
+    echo "plugin not found: $type_dir"
+    return
+  fi
+  
+  open_plug $type_dir
+}
+
+open_plug() {
+  vscode $type_dir
+}
+
+main $@

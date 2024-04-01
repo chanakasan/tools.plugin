@@ -1,0 +1,14 @@
+main() {
+  local name="$1"
+  local path_1=$HOME/tpl/$name
+  if [ -z "$name" ]; then
+    echo " must provide tpl <name>"
+    exit 1
+  elif [ ! -d "$path_1" ]; then
+    echo " tpl not found: $path_1"
+    exit 1
+  fi
+  vscode $path_1
+}
+
+main $@
