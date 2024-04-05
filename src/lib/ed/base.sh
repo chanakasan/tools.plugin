@@ -10,7 +10,15 @@ nx_ed() {
   local cmd2=_ed_$a1
   if [ -z "$a1" ]; then
     _ed_sp
-  elif [ "$(is_function $fn)" == "true" ]; then
+    exit
+  fi
+
+  if [ "$a1" == "." ]; then
+    _ed_pwd
+    exit
+  fi
+
+  if [ "$(is_function $fn)" == "true" ]; then
     $fn "${@:2}"
   elif [ "$(is_command $cmd1)" == "true" ]; then
     $cmd1 "${@:3}"

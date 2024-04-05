@@ -1,4 +1,14 @@
 # open in vscodede
+_ed_pwd() {
+  local pwd_dir=$(basename $PWD)
+  if [[ "$pwd_dir" == "space" ]] && [[ -L "$PWD" ]]; then
+    abs_path=$(readlink -f "$PWD")
+    vscode $abs_path
+  else
+    vscode .
+  fi
+}
+
 _ed_vim() {
   _ed_plug vim
 }
@@ -7,8 +17,16 @@ _ed_cli() {
   _ed_plug cli
 }
 
-_ed_ed() {
+_ed_tools() {
   _ed_plug tools
+}
+
+_ed_tool() {
+  _ed_tools
+}
+
+_ed_ed() {
+  _ed_tools
 }
 
 _ed_git() {
@@ -20,7 +38,7 @@ _ed_tmux() {
 }
 
 _ed_script() {
-  _ed_plug devscript
+  vscode $HOME/dotfiles/devscript
 }
 
 _ed_modules() {
