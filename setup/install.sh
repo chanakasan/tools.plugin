@@ -7,9 +7,8 @@ main() {
   local start_text='__nex_tools_start'
   local end_text='__nex_tools_end'
   local bashrc="$HOME/.bashrc"
-  local default_root=$HOME/plugins
-  local root_path=${nex_root_path:-$default_root}
-  local nex_tools_path=$root_path)/$plugin_dir
+  local root_path=$HOME/dotfiles
+  local nex_tools_path=$root_path/$plugin_dir
   start
   remove_from_bashrc
   copy_to_bashrc
@@ -17,7 +16,7 @@ main() {
 }
 
 start() {
-  echo " Installing - Nex Tools"
+  echo " Installing Plugin - Nex Tools"
 }
 
 finish() {
@@ -34,7 +33,7 @@ copy_to_bashrc() {
   echo "#$start_text" >> $bashrc
   echo 'export nex_tools_path='$nex_tools_path >> $bashrc
   echo 'export PATH=$nex_tools_path/bin:$PATH' >> $bashrc
-  echo 'source $nex_tools_path/src/bash/main.sh' >> $bashrc
+  echo 'source $nex_tools_path/src/bash.sh' >> $bashrc
   echo "#$end_text" >> $bashrc
   echo "" >> $bashrc
 }
