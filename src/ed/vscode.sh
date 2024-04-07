@@ -27,7 +27,7 @@ _ed_tmux() {
 }
 
 _ed_script() {
-  vscode $HOME/dotfiles/devscript
+  _ed_plug devscript
 }
 
 _ed_modules() {
@@ -35,5 +35,5 @@ _ed_modules() {
 }
 
 _ed_rtpl() {
-  vscode $HOME/railstpl
+  _ed_plug railstpl
 }
