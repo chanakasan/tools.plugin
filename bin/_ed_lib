@@ -1,0 +1,27 @@
+set -e
+
+main() {
+  local base=$HOME/groups/lib
+  local type="$1"
+  local type_name=$type.lib
+  local type_dir=$base/$type_name
+
+  if [ -z "$type" ]; then
+    echo " must provide lib <name>"
+    exit 1
+  fi
+
+  if [ ! -d "$type_dir" ]; then
+    echo " not_found: $type_name"
+    return
+  fi
+  
+  open_lab $type_dir
+}
+
+open_lab() {
+  cd $type_dir
+  vscode $type_dir
+}
+
+main $@

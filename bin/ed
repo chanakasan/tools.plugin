@@ -9,13 +9,8 @@ main() {
   local fn1=_ed_$1
   local cmd1=_ed_$1'_'$2
   local cmd2=_ed_$1
-  if [ -z "$1" ]; then
-    _ed_sp
-    exit
-  fi
-
-  if [ "$1" == "." ]; then
-    _ed_pwd
+  if [ -z "$1" ] || [ -d "$1" ]; then
+    _ed_dir $1
     exit
   fi
 

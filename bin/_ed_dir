@@ -1,0 +1,42 @@
+main() {
+  local input_arg="$1"
+  local pwd_dir=$(basename $PWD)
+  if input_is_a_symlink; then
+    local input_abs_path=$(readlink -f "$input_arg")
+    vscode $input_abs_path
+  elif input_is_a_dir; then
+    vscode $input_arg
+  elif pwd_is_a_space; then
+    local pwd_abs_path=$(readlink -f "$PWD")
+    vscode $pwd_abs_path
+  else
+    echo " Usage: ed <dir>"
+    echo
+  fi
+}
+
+pwd_is_a_space() {
+  if [[ "$pwd_dir" == "space" ]] && [[ -L "$PWD" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+input_is_a_dir() {
+  if [ -d "$input_dir" ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+input_is_a_symlink() {
+  if [ -L "$input_dir" ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+main "$1"
