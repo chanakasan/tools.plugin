@@ -1,14 +1,29 @@
 main() {
   local pwd_dir=$(basename $PWD)
-  local link_dir="$PWD/space"
+  local guess_link_dir="$PWD/space"
+  if pwd_is_a_space; then
+    vscode $(readlink -f "$PWD")
+  elif pwd_has_a_space; then
+    vscode $(readlink -f "$guess_link_dir")
+  else
+    echo " Usage: ed <arg>"
+    echo
+  fi
+}
+
+pwd_has_a_space() {
+  if [[ -L "$guess_link_dir" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+pwd_is_a_space() {
   if [[ "$pwd_dir" == "space" ]] && [[ -L "$PWD" ]]; then
-    # PWD is a space
-    abs_path=$(readlink -f "$PWD")
-    vscode $abs_path
-  elif [ -L "$link_dir" ]; then
-    # PWD has a space
-    abs_path=$(readlink -f "$link_dir")
-    vscode $abs_path
+    return 0
+  else
+    return 1
   fi
 }
 
