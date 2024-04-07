@@ -7,7 +7,7 @@ main() {
   elif [[ "$pwd_dir" == "space" ]] && [[ -L "$PWD" ]]; then
     abs_path=$(readlink -f "$PWD")
     vscode $abs_path
-  elif [ -d $dir_path ];
+  elif [ -d $dir_path ]; then
     vscode $dir_path
   fi
 }

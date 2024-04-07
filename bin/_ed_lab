@@ -1,5 +1,5 @@
 main() {
-  local base=$HOME/groups/nexit/system
+  local base=$HOME/groups/labs
   local type="$1"
   local type_name=$type-lab
   local type_dir=$base/$type_name
