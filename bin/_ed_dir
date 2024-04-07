@@ -10,7 +10,7 @@ main() {
 }
 
 input_is_a_dir() {
-  if [ -d "$input_dir" ]; then
+  if [ -d "$input_arg" ]; then
     return 0
   else
     return 1
@@ -18,7 +18,7 @@ input_is_a_dir() {
 }
 
 input_is_a_symlink() {
-  if [ -L "$input_dir" ]; then
+  if [ -L "$input_arg" ]; then
     return 0
   else
     return 1
