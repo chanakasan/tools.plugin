@@ -1,6 +1,6 @@
 require "securerandom"
 
-module Haikunator
+class Haikunator
   class << self
     def haikunate(token_range = 9999, delimiter = "-")
       build(token_range, delimiter)

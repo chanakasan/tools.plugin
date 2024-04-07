@@ -1,13 +1,51 @@
 #!/bin/bash
 
+source $nex_tools_path/lib/nex_lib/lib-utils.sh
+source $nex_tools_path/lib/nex_lib/lib-type-checks.sh
 source $nex_tools_path/src/ed.sh
 
 main() {
-	if [ "$nex_use_tmux" == "true" ]; then
-		nx_ed_tmux $@
-	else
-		nx_ed $@
-	fi
+  local main_cmd="ed $1 $2 $3"
+  local fn1=_ed_$1
+  local cmd1=_ed_$1'_'$2
+  local cmd2=_ed_$1
+  if [ -z "$1" ]; then
+    _ed_sp
+    exit
+  fi
+
+  if [ "$1" == "." ]; then
+    _ed_pwd
+    exit
+  fi
+
+  if is_cmd $cmd1; then
+    $cmd1 "${@:3}"
+  elif is_cmd $cmd2; then
+    $cmd2 "${@:2}"
+  elif is_func $fn1; then
+    $fn "${@:2}"
+  else
+    echo " command not found: $main_cmd"
+  fi
 }
 
-main "$@"
+
+wait_for_key() {
+  echo "Press any key to continue"
+  while [ true ]; do
+    read -t 5 -n 1
+    if [ $? = 0 ]; then
+      exit
+    else
+      echo "waiting for the keypress"
+    fi
+  done
+}
+
+print_usage() {
+  echo " Usage: ed <type> <file>"
+  echo
+}
+
+main $@

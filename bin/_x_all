@@ -1,0 +1,5 @@
+for d in $nex_bin_path/src/bin/*; do
+  if [ -d "$d" ]; then
+    chmod +x $d/*
+  fi
+done
