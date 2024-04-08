@@ -1,0 +1,5 @@
+if grep -qi "Microsoft" /proc/version; then
+    return 0
+else
+    return 1
+fi
