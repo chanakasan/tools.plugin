@@ -41,3 +41,7 @@ _ed_rtpl() {
 _ed_empty() {
   ed $HOME/groups/workspaces/empty_space
 }
+
+_ed_snippets() {
+  power -Command "edit_snippets; exit"
+}
