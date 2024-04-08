@@ -37,3 +37,7 @@ _ed_modules() {
 _ed_rtpl() {
   _ed_plug railstpl
 }
+
+_ed_empty() {
+  ed $HOME/groups/workspaces/empty_space
+}
