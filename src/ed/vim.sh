@@ -1,5 +1,5 @@
 _ed_rcbash() {
-  vim $HOME/.bashrc
+  vi $HOME/.bashrc
 }
 
 _ed_rc() {
@@ -7,20 +7,20 @@ _ed_rc() {
 }
 
 _ed_rcvim() {
-  vim $HOME/.vimrc
+  vi $HOME/.vimrc
 }
 
 _ed_mod() {
   local user_mods_path=$HOME/user_mods/bash
-  vim $user_mods_path
+  vi $user_mods_path
 }
 
 _ed_ssh() {
-  vim $HOME/.ssh/config
+  vi $HOME/.ssh/config
 }
 
 _ed_rcinput() {
-  vim $HOME/inputrc
+  vi $HOME/inputrc
 }
 
 _ed_input() {

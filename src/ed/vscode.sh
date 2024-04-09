@@ -43,5 +43,9 @@ _ed_empty() {
 }
 
 _ed_snippets() {
-  power -Command "edit_snippets; exit"
+  win_cmd /c 'vscode "C:/Apps/VSCodePort/data/user-data/User/snippets"'
+}
+
+_ed_snip() {
+  _ed_snippets
 }
