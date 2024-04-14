@@ -1,0 +1,6 @@
+if [ -z "$1" ]; then
+  echo " Usage: vs <remote host>"
+  exit 1
+fi
+
+vscode --folder-uri vscode-remote://ssh-remote+$1

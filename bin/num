@@ -17,3 +17,5 @@ class RandomNumber
     end
   end
 end
+
+puts RandomNumber.generate
