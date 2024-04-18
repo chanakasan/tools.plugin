@@ -1,3 +1,0 @@
-nx__trash() {
-  trash "$@"
-}
