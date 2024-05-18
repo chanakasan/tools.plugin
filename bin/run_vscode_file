@@ -1,12 +1,7 @@
-# replace first instance
-# ${parameter/pattern/string}
-
-# replace all
-# ${parameter//pattern/string}
 
 main() {
   local file="$1"
-  local local_script="bin/run_file.sh"
+  local local_script=".local/bin/run_file.sh"
   local find="\\"
   local replace="\/"
   local file_2=$(echo $file | sed 's#\\#\/#g')
