@@ -5,11 +5,34 @@
 # ${parameter//pattern/string}
 
 main() {
-  local input="$1"
+  local file="$1"
+  local local_script="bin/run_file.sh"
   local find="\\"
   local replace="\/"
-  local new_input=$(echo $input | sed 's#\\#\/#g')
-  run_file "$new_input"
+  local file_2=$(echo $file | sed 's#\\#\/#g')
+  local file_3="${file_2/C:/\/mnt\/c}"
+  if is_file $local_script; then
+    bash $local_script "$file_3"
+  else
+    run_file_default "$file_3"
+  fi
+}
+
+is_file() {
+  if [ -f "$1" ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+is_command() {
+  if command -v "$1" &> /dev/null; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 main "$@"
+

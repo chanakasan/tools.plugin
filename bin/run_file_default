@@ -1,0 +1,23 @@
+main() {
+  local base=$(basename "$1")
+  local type="${base##*.}"
+  fix_empty_case
+  local fn=run_$type
+  if [ "$(type -t "$fn")" == "function" ]; then
+    $fn "$1"
+  else
+    echo "$fn not defined"
+  fi
+}
+
+fix_empty_case() {
+  if [ $base == $type ]; then
+    type="sh"
+  fi
+}
+
+run_sh() {
+  bash $@
+}
+
+main "$@"
