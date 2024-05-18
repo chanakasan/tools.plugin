@@ -9,7 +9,7 @@ main() {
   if is_file $local_script; then
     bash $local_script "$file_3"
   else
-    run_file_default "$file_3"
+    run_file "$file_3"
   fi
 }
 
@@ -27,6 +27,30 @@ is_command() {
   else
     return 1
   fi
+}
+
+run_file() {
+  local base=$(basename "$1")
+  local type=$(get_type "$1")
+  local fn=run_file_$type
+  if [ "$(type -t "$fn")" == "function" ]; then
+    $fn "$1"
+  else
+    echo "$fn not defined"
+  fi
+}
+
+get_type() {
+  local input="$1"
+  local type="${input##*.}"
+  if [ $type == $input ]; then
+    type="sh"
+  fi
+  echo $type
+}
+
+run_file_sh() {
+  bash $@
 }
 
 main "$@"
