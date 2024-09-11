@@ -1,2 +1,15 @@
+set -e
+
+if [[ -n "$1" ]]; then
+  new-rails
+  exit
+fi
+
 read -p "type: " type
+
+if [[ -z "type" ]]; then
+  echo " type is required"
+  exit 1
+fi
+
 new-$type
