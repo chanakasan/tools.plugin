@@ -1,5 +1,0 @@
-for f in $(pwd)/bin/*; do
-  if [ -f "$f" ]; then
-    chmod +x $f
-  fi
-done

@@ -1,0 +1,14 @@
+if [ -d "$(pwd)/bin" ]; then
+  cd bin
+fi
+
+if [ "$(pwd)" != "bin" ]; then
+  echo "bin dir not found"
+  exit 0
+fi
+
+for file in *; do
+  if [ -f "$file" ]; then
+    chmod +x "$file"
+  fi
+done
