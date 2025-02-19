@@ -1,9 +1,14 @@
-if [ -d "$(pwd)/bin" ]; then
+echo "=> chmod-bin"
+
+base_dir=$(pwd)
+
+if [ -d "$base_dir/bin" ]; then
   cd bin
 fi
 
-if [ "$(pwd)" != "bin" ]; then
+if [ $(basename "$PWD") != "bin" ]; then
   echo "bin dir not found"
+  echo "nothing to do"
   exit 0
 fi
 
@@ -12,3 +17,5 @@ for file in *; do
     chmod +x "$file"
   fi
 done
+
+echo done
